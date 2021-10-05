@@ -3,6 +3,8 @@
 namespace Config;
 
 // Create a new instance of our RouteCollection class.
+use function MongoDB\BSON\toCanonicalExtendedJSON;
+
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
@@ -34,6 +36,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/hello', 'SelamatDatang::hal_awal');
 $routes->get('/login', 'SelamatDatang::beranda_login');
+$routes->post('/login','Login::cekLogin');
 $routes->get('/daftar-member', 'SelamatDatang::daftar_member');
 
 /*
